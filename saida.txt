@@ -1,0 +1,29 @@
+[4, 5, 6, 7, 8, 9, 23]
+Entrada : 4
+Binario: 000100
+Gray: 000110
+
+Entrada : 5
+Binario: 000101
+Gray: 000111
+
+Entrada : 6
+Binario: 000110
+Gray: 000101
+
+Entrada : 7
+Binario: 000111
+Gray: 000100
+
+Entrada : 8
+Binario: 001000
+Gray: 001100
+
+Entrada : 9
+Binario: 001001
+Gray: 001101
+
+Entrada : 23
+Binario: 010111
+Gray: 011100
+

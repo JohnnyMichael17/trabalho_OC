@@ -1,5 +1,8 @@
 import java.util.Scanner;
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Arrays;
 
 public class TrabalhoCodGray {
@@ -31,7 +34,7 @@ public class TrabalhoCodGray {
     }
 
     public static int[] convertBin(int desc) {
-        int[] bin = new int[5];
+        int[] bin = new int[6];
 
         try {
             for (int i = bin.length - 1; desc > 0; i--) {
@@ -49,7 +52,7 @@ public class TrabalhoCodGray {
     }
 
     public static int[] convertGray(int[] bin) {
-        int[] gray = new int[5];
+        int[] gray = new int[6];
         gray[0] = bin[0];
 
         for (int i = 1; i < gray.length; i++) {
@@ -66,7 +69,8 @@ public class TrabalhoCodGray {
     public static void main(String[] args) {
 
         int[] data = readFiles("entrada.txt");
-        System.out.println(Arrays.toString(data));
+        System.out.println();
+        String saida = new String(Arrays.toString(data)+"\n");
 
         int aux = 0;
         while (aux <= data.length - 1) {
@@ -74,20 +78,34 @@ public class TrabalhoCodGray {
 
             if (bin != null) {
                 int gray[] = convertGray(bin);
-
-                System.out.print("\nBinario: ");
+                saida = saida.concat("Entrada : "+ data[aux]+"\n");
+                saida = saida.concat("Binario: ");
 
                 for (int i = 0; i < gray.length; i++)
-                    System.out.print(bin[i]);
+                saida = saida.concat(bin[i]+"");
 
-                System.out.print("\nGray: ");
+                saida = saida.concat("\nGray: ");
+                
 
                 gray = convertGray(bin);
-                for (int i = 0; i < gray.length; i++)
-                    System.out.print(gray[i]);
+                for (int i = 0; i < gray.length; i++) 
+                saida = saida.concat(gray[i]+"");
             }
-            System.out.println();
+            saida = saida.concat("\n");
+            saida = saida.concat("\n");
             aux++;
+        }
+        //System.out.print(saida);
+        BufferedWriter escritor = null;
+        try{
+        escritor = new BufferedWriter( new FileWriter("saida.txt"));
+        escritor.write(saida);
+        if ( escritor != null)
+        escritor.close();
+        System.out.println("Programa finalizado");
+        }
+        catch ( IOException e){
+            System.out.println("Erro ao gerar arquivo");
         }
     }
 }
