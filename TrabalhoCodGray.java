@@ -7,10 +7,10 @@ import java.util.Arrays;
 
 public class TrabalhoCodGray {
 
-    public static int[] readFiles(String arquivo) {
+    public static int[] ler(String caminho) {
         try {
-            File file = new File(arquivo);
-            Scanner entrada = new Scanner(file);
+            File arquivo = new File(caminho);
+            Scanner entrada = new Scanner(arquivo);
             int aux = 0;
 
             while (entrada.hasNextInt()) {
@@ -18,7 +18,7 @@ public class TrabalhoCodGray {
                 entrada.nextInt();
             }
             int[] array = new int[aux];
-            Scanner entrada2 = new Scanner(file);
+            Scanner entrada2 = new Scanner(arquivo);
 
             for (int i = 0; i < array.length; i++)
                 array[i] = entrada2.nextInt();
@@ -67,9 +67,10 @@ public class TrabalhoCodGray {
     }
 
     public static void main(String[] args) {
-
-        int[] data = readFiles("entrada.txt");
+        //leitura do arquivo
+        int[] data = ler("entrada.txt");
         System.out.println();
+        //variavel que ira armazenar o valor das converções
         String saida = new String(Arrays.toString(data)+"\n");
 
         int aux = 0;
@@ -95,7 +96,7 @@ public class TrabalhoCodGray {
             saida = saida.concat("\n");
             aux++;
         }
-        //System.out.print(saida);
+        //Variavel que salvara as converções em "saida" no arquivo "saida.txt"
         BufferedWriter escritor = null;
         try{
         escritor = new BufferedWriter( new FileWriter("saida.txt"));
