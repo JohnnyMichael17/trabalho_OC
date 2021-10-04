@@ -7,7 +7,7 @@ import java.util.Arrays;
 
 public class TrabalhoCodGray {
 
-    public static int[] ler(String caminho) {
+    public static int[] lerArquivo(String caminho) {
         try {
             File arquivo = new File(caminho);
             Scanner entrada = new Scanner(arquivo);
@@ -68,7 +68,7 @@ public class TrabalhoCodGray {
 
     public static void main(String[] args) {
         //leitura do arquivo
-        int[] data = ler("entrada.txt");
+        int[] data = lerArquivo("entrada.txt");
         System.out.println();
         //variavel que ira armazenar o valor das converções
         String saida = new String(Arrays.toString(data)+"\n");
